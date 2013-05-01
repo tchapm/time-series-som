@@ -95,7 +95,7 @@ public class SOMMain {
 			}
 		}else {
 			//what set are you running
-			int analysisSet = 1; 
+			int analysisSet = 2; 
 			//		1: yeast from Spellman et al.
 			//		2: caulobacter from Lamb et al.
 			//		3: artificial linear 2D
