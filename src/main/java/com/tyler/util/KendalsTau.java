@@ -1,4 +1,4 @@
-package util;
+package com.tyler.util;
 /**
 *
 * @author Tyler Chapman

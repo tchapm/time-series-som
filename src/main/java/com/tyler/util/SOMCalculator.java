@@ -1,9 +1,15 @@
-package util;
+package com.tyler.util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import main.PrintHelpers;
+
+import com.tyler.kmeans.model.KMeansClustering;
+import com.tyler.som.model.Centroid;
+import com.tyler.som.model.Cluster;
+import com.tyler.som.model.DataPoint;
+import com.tyler.som.model.MinSpanTree;
+
 
 
 

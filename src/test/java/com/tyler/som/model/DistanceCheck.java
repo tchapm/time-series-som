@@ -1,10 +1,12 @@
+package com.tyler.som.model;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import util.Coords;
+import com.tyler.som.model.Coords;
+
 
 
 import Jama.EigenvalueDecomposition;

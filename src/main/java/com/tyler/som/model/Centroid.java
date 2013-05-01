@@ -1,4 +1,4 @@
-package util;
+package com.tyler.som.model;
 
 import java.util.ArrayList;
 

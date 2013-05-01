@@ -1,4 +1,4 @@
-package util;
+package com.tyler.som.model;
 /**
 *
 * @author Tyler Chapman

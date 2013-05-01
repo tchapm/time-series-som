@@ -1,8 +1,12 @@
-package util;
+package com.tyler.kmeans.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
+
+import com.tyler.som.model.Centroid;
+import com.tyler.som.model.Cluster;
+import com.tyler.som.model.DataPoint;
 
 public class KMeansClustering {
 	public static final double CUTOFF = 0.0001;

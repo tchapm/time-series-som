@@ -1,4 +1,4 @@
-package util;
+package com.tyler.som.model;
 /**
 *
 * @author Tyler Chapman
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
+
 
 public class PathAndDistance {
 	private double dist;

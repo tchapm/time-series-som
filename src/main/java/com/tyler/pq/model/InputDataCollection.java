@@ -1,4 +1,4 @@
-package util;
+package com.tyler.pq.model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.Vector;
+
+import com.tyler.som.model.DataPoint;
 
 public class InputDataCollection {
 	private double[][] distMat;

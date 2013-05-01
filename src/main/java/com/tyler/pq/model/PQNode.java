@@ -1,6 +1,8 @@
+package com.tyler.pq.model;
 import java.util.Vector;
 
-import util.DataPoint;
+import com.tyler.som.model.DataPoint;
+
 
 
 public class PQNode {

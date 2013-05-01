@@ -1,3 +1,4 @@
+package com.tyler.pq.model;
 import java.awt.geom.GeneralPath;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,12 +13,12 @@ import java.util.Vector;
 import javax.sound.sampled.ReverbType;
 import javax.xml.soap.Node;
 
-import main.SOMMain;
+import com.tyler.som.model.DataPoint;
+import com.tyler.som.model.MinSpanTree;
+import com.tyler.som.model.PathAndDistance;
+import com.tyler.som.model.SOMMain;
 
-import util.DataPoint;
-import util.InputDataCollection;
-import util.MinSpanTree;
-import util.PathAndDistance;
+
 
 
 public class MagweneMethod {

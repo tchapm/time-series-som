@@ -1,8 +1,9 @@
-package util;
+package com.tyler.som.model;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
 
 /**
 *

@@ -1,4 +1,4 @@
-package main;
+package com.tyler.som.model;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -10,15 +10,12 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import util.Centroid;
-import util.Cluster;
-import util.InputDataCollection;
-import util.DataPoint;
-import util.KMeansClustering;
-import util.KendalsTau;
-import util.MinSpanTree;
-import util.SOMCalculator;
-import util.TreeEvaluator;
+import com.tyler.kmeans.model.KMeansClustering;
+import com.tyler.pq.model.InputDataCollection;
+import com.tyler.util.PrintHelpers;
+import com.tyler.util.SOMCalculator;
+import com.tyler.util.TreeEvaluator;
+
 
 
 /**

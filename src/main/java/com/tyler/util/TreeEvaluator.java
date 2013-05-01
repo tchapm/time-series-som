@@ -1,4 +1,4 @@
-package util;
+package com.tyler.util;
 /**
 *
 * @author Tyler Chapman
@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
+
+import com.tyler.som.model.Cluster;
+import com.tyler.som.model.Coords;
+import com.tyler.som.model.DataPoint;
+import com.tyler.som.model.PathAndDistance;
 
 
 

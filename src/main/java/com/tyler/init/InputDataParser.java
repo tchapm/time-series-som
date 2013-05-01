@@ -1,3 +1,4 @@
+package com.tyler.init;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -10,7 +11,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import util.Coords;
+import com.tyler.som.model.Coords;
+
 /**
  *
  * @author Tyler Chapman

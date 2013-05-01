@@ -1,4 +1,4 @@
-package tests;
+package com.tyler.som.model;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,12 +14,12 @@ import java.util.Vector;
 
 import org.junit.Test;
 
-import util.DataPoint;
-import util.PathAndDistance;
-import util.SOMCalculator;
-import util.TreeEvaluator;
+import com.tyler.som.model.DataPoint;
+import com.tyler.som.model.PathAndDistance;
+import com.tyler.util.SOMCalculator;
+import com.tyler.util.TreeEvaluator;
 
-import main.SOMMain;
+
 
 
 public class errorPathTest {

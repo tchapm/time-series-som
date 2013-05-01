@@ -1,4 +1,4 @@
-package main;
+package com.tyler.util;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import util.Cluster;
-import util.InputDataCollection;
-import util.DataPoint;
-import util.KendalsTau;
-import util.SOMCalculator;
-import util.TreeEvaluator;
+import com.tyler.pq.model.InputDataCollection;
+import com.tyler.som.model.Cluster;
+import com.tyler.som.model.DataPoint;
+
 
 public class PrintHelpers {
 	
