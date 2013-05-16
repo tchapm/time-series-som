@@ -1,9 +1,12 @@
 package com.tyler.kmeans.model;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import com.tyler.pq.model.InputDataCollection;
 import com.tyler.som.model.Centroid;
 import com.tyler.som.model.Cluster;
 import com.tyler.som.model.DataPoint;
@@ -154,5 +157,28 @@ public class KMeansClustering {
 			theCentroids.add(tempCentroid);
 		}
 		return theCentroids;
+	}
+	
+	public static void main (String args[]) throws IOException{
+//		String inputFile = "/Users/tchap/Documents/SOMfiles/linear2dNoiseData.txt";
+		int numCentroids = Integer.parseInt(args[0]);
+		String inputFile = args[1];
+		InputDataCollection dataColl = null;
+		try {
+			dataColl = new InputDataCollection(inputFile);
+		}catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		int numDim = dataColl.getNumDim();
+
+		Vector<DataPoint> dataPoints = new Vector<DataPoint>();
+		dataPoints = dataColl.getDataPoints();
+		KMeansClustering theClustering = new KMeansClustering(numCentroids, dataPoints, numDim);
+		ArrayList<Centroid> centroids = theClustering.startAnalysis();
+		int i = 1;
+		for(Centroid mapPt : centroids){
+			System.out.println("Centroid " + i++ + " Position: " + mapPt.getPosition());
+		}
+		
 	}
 }

@@ -95,7 +95,7 @@ public class SOMMain {
 			}
 		}else {
 			//what set are you running
-			int analysisSet = 2; 
+			int analysisSet = 16; 
 			//		1: yeast from Spellman et al.
 			//		2: caulobacter from Lamb et al.
 			//		3: artificial linear 2D
@@ -230,9 +230,9 @@ public class SOMMain {
 		Vector<Integer> bestMapPath = null;
 		ArrayList<Integer> bestPointPath = null;
 		ArrayList<ArrayList<Centroid>> centArr = new ArrayList<ArrayList<Centroid>>();
-		int numCycles = 1;
+		int numCycles = 10;
 		Boolean isRandom = true; //to set initial map points randomly or assign data pts randomly
-		for(int i=dataColl.getNumPts()-1; i<dataColl.getNumPts(); i++){
+		for(int i=dataColl.getNumPts()-3; i<dataColl.getNumPts(); i++){
 			SOMCalculator som = null;
 			centArr = new ArrayList<ArrayList<Centroid>>();
 			for(int j=0; j<numCycles; j++){
