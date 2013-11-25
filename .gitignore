@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 /bin
+=======
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+>>>>>>> 71a83e64a4366db6ad63e684a23723643d2bbea3
