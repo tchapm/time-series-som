@@ -41,20 +41,19 @@ public class SelfOrganizingMapMain {
 		PropertyConfigurator.configure("log4j.properties");
 	}
 
-	private static void execute(String inputFile, boolean printOutput)
+	private static void execute(String inputFile, boolean printOutput, int mdsDimensions, int numCycles, boolean forgyEachRun, boolean forgyKmeans)
 			throws IOException {
 		InputDataCollection dataColl = new InputDataCollection(inputFile);
-		dataColl.setDataToScale(50);
+		dataColl.setDataToScale(mdsDimensions);
 		String inputFolder = inputFile.substring(0, inputFile.lastIndexOf(FILE_DIVIDER));
 		double lowestError = Double.MAX_VALUE;
 		int bestNumCent = 0;
 		Vector<Integer> bestMapPath = null;
 		ArrayList<Integer> bestPointPath = null;
-		int numCycles = 1;
 		KMeansClustering bestMapPositions = null;
 
 		for (int numCentroids = dataColl.getNumPts() - 4; numCentroids < dataColl.getNumPts(); numCentroids++) {
-			KMeansClustering kCluster = SelfOrganizingMapMain.runCompleteSomAnalysis(dataColl, numCentroids, numCycles, inputFolder);
+			KMeansClustering kCluster = SelfOrganizingMapMain.runCompleteSomAnalysis(dataColl, numCentroids, numCycles, inputFolder, forgyEachRun, forgyKmeans);
 			MinSpanTree clusterTree = kCluster.getMinSpanTree();
 			// mst connecting the map points
 			TreeEvaluator tev = new TreeEvaluator(dataColl.getDataPoints(),
@@ -82,7 +81,7 @@ public class SelfOrganizingMapMain {
 		logger.info("Data Point Order: " + bestPointPath.toString());
 	}
 	
-	private static KMeansClustering runCompleteSomAnalysis(InputDataCollection dataColl, int numCentroids, int numCycles, String inputFolder) throws IOException {
+	private static KMeansClustering runCompleteSomAnalysis(InputDataCollection dataColl, int numCentroids, int numCycles, String inputFolder, boolean forgyEachRun, boolean forgyKmeans) throws IOException {
 		SelfOrganizingMapCalc som = null;
 		ArrayList<ArrayList<Centroid>> centArr = new ArrayList<ArrayList<Centroid>>();
 		// run analysis numCycle number of times and use
@@ -91,8 +90,13 @@ public class SelfOrganizingMapMain {
 			som = new SelfOrganizingMapCalc(numCentroids, dataColl.getDataPoints(), dataColl.getNumDim());
 //			som.initializeClustersRandomly();
 //			som.initializeDataPointsRandomly();
-//			som.initializeDataPointsInOrder();
-			som.initializeForgy();
+//			
+			if(forgyEachRun){
+				som.initializeForgy();
+			} else {
+				som.initializeDataPointsInOrder();
+			}
+			
 			som.runAnalysis();
 			som.runPrintFunctions(inputFolder);
 			centArr.add(SelfOrganizingMapCalc.getCentroidsWithData(som.getClusters()));
@@ -105,8 +109,12 @@ public class SelfOrganizingMapMain {
 		PrintHelpers.printTopPaths(tev, inputFolder);
 		KMeansClustering clusterOfClusters = new KMeansClustering(centArr, numCentroids);
 //		clusterOfClusters.initializeClustersRandomly();
-		clusterOfClusters.initializeForgy();
-//		clusterOfClusters.initializeDataPointsInOrder();
+		if(forgyKmeans){
+			clusterOfClusters.initializeForgy();
+		} else {
+			clusterOfClusters.initializeDataPointsInOrder();
+		}
+//		
 		clusterOfClusters.getSetAverageMap(clusterOfClusters.runAnalysis());
 //		SelfOrganizingMapCalc.assignDataPtsByDistance(dataColl.getDataPoints(), clusterOfClusters.getClusters());
 		return clusterOfClusters;
@@ -164,7 +172,7 @@ public class SelfOrganizingMapMain {
 		String inputFile = null;
 
 		// the raw data set
-		int analysisSet = 2;
+		int analysisSet = 1;
 		// 1: yeast from Spellman et al.
 		// 2: caulobacter from Lamb et al.
 		// 3: artificial linear 2D
@@ -188,7 +196,11 @@ public class SelfOrganizingMapMain {
 		inputFile = inFileSb.toString();
 		logger.info("Input File Path: " + inputFile);
 		boolean printOutput = false;
-		SelfOrganizingMapMain.execute(inputFile, printOutput);
+		int numCycles = 1;
+		int mdsDimensions = 5;
+		boolean forgyEachRun = true;
+		boolean forgyKmeans = true;
+		SelfOrganizingMapMain.execute(inputFile, printOutput, mdsDimensions, numCycles, forgyEachRun, forgyKmeans);
 	}
 
 }

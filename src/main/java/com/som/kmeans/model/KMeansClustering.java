@@ -91,6 +91,7 @@ public class KMeansClustering {
 		return avePositions;
 	}
 	
+	@SuppressWarnings("unused")
 	public ArrayList<Centroid> runAnalysis() throws IOException {
 		//finds the movement of the centroids at each step and checks with cutoff before concluding
 		double aveMoveLength = Double.MIN_VALUE;

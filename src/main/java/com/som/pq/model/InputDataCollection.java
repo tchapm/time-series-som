@@ -54,6 +54,9 @@ public class InputDataCollection {
 	}
 	
 	public void setDataToScale(int dim) {
+		if(dim<=0){
+			return;
+		}
 		double[][] scalingMatrix = MDS.classicalScaling(distMat, dim);
 		ArrayList<DataPoint> tempDataArr = new ArrayList<DataPoint>();
 		ArrayList<Double> position;
